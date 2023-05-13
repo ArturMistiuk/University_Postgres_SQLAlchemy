@@ -9,4 +9,4 @@ Base = declarative_base()
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
-Base.metadata.create_all(engine)
+Base.metadata.drop_all(engine)
