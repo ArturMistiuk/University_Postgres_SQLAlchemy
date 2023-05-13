@@ -19,6 +19,7 @@ class Student(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(50), nullable=True)
     group_id = Column(Integer, ForeignKey('groups.id'))
+    group = relationship('Group', back_populates='students')
     marks = relationship('Mark', back_populates='student')
 
 
@@ -48,3 +49,4 @@ class Mark(Base):
     student_id = Column(Integer, ForeignKey('students.id'))
     professor_id = Column(Integer, ForeignKey('professors.id'))
     professor = relationship('Professor', back_populates='marks')
+    student = relationship('Student', back_populates='marks')
